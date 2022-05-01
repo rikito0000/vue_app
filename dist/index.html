@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>Website Name</title>
+    <title>vue | Website Name</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="format-detection" content="telephone=no">
@@ -21,87 +21,47 @@
     <link rel="icon" type="image/x-icon" href="./_assets/images/_etc/favicon.ico">
     <link rel="icon" type="image/png" href="./_assets/images/_etc/favicon.png">
     <link rel="apple-touch-icon" type="image/png" href="./_assets/images/_etc/custom-icon.png">
-    
+
     <!-- Styles-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" media="print,screen" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" media="print,screen" href="./_assets/css/style.css">
   </head>
   <body class="topPage" id="top">
-    <header class="siteHeader">
-      <div class="siteHeader__inner">
-        <nav class="siteHeader__nav" role="navigator">
-          <ul class="siteHeader__navList">
-            <li class="siteHeader__navItem is-current"><a class="siteHeader__navItemLink" href="./.">HOME</a></li>
-            <li class="siteHeader__navItem"><a class="siteHeader__navItemLink" href="./about">ABOUT US</a></li>
-            <li class="siteHeader__navItem"><a class="siteHeader__navItemLink" href="./services">SERVICES</a></li>
-            <li class="siteHeader__navItem"><a class="siteHeader__navItemLink" href="./contact">CONTACT</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
     <main class="siteContent" role="main">
-      <section class="sec01">
-        <ul class="cardList01">
-          <li class="cardList01__item"><a class="cardList01__link" href="#top">
-              <figure class="cardList01__thumb"><img class="cardList01__img" src="./_assets/images/sample/sample_img-01.jpg" alt="#">
-                <figcaption class="cardList01__caption"></figcaption>
-              </figure>
-              <h3 class="cardList01__title">h1_01</h3>
-              <p class="cardList01__desc">text_01</p></a></li>
-          <li class="cardList01__item"><a class="cardList01__link" href="#top">
-              <figure class="cardList01__thumb"><img class="cardList01__img" src="./_assets/images/sample/sample_img-02.jpg" alt="#">
-                <figcaption class="cardList01__caption"></figcaption>
-              </figure>
-              <h3 class="cardList01__title">h1_02</h3>
-              <p class="cardList01__desc">text_02</p></a></li>
-          <li class="cardList01__item"><a class="cardList01__link" href="#top">
-              <figure class="cardList01__thumb"><img class="cardList01__img" src="./_assets/images/sample/sample_img-03.jpg" alt="#">
-                <figcaption class="cardList01__caption"></figcaption>
-              </figure>
-              <h3 class="cardList01__title">h1_03</h3>
-              <p class="cardList01__desc">text_03</p></a></li>
+      <div id="app">
+        <p><input type="text" v-model="keyword"></p>
+        <p>{{ message }}</p>
+        <ul>
+          <li v-for="item in items">
+            <a v-bind:href="item.url" target="_blank">
+              {{ item.title }}
+            </a>
+            likes: {{ item.likes_count }}
+          </li>
         </ul>
-      </section>
-      <section class="sec02">
-        <ul class="cardList02">
-          <li class="cardList02__item"><a class="cardList02__link" href="#">
-              <figure class="cardList02__thumb"><img class="cardList01__img" src="https://placehold.jp/300x300.png" alt="#">
-                <figcaption class="cardList02__caption">Name</figcaption>
-              </figure></a></li>
-          <li class="cardList02__item"><a class="cardList02__link" href="#">
-              <figure class="cardList02__thumb"><img class="cardList01__img" src="https://placehold.jp/300x300.png" alt="#">
-                <figcaption class="cardList02__caption">Name</figcaption>
-              </figure></a></li>
-          <li class="cardList02__item"><a class="cardList02__link" href="#">
-              <figure class="cardList02__thumb"><img class="cardList01__img" src="https://placehold.jp/300x300.png" alt="#">
-                <figcaption class="cardList02__caption">Name</figcaption>
-              </figure></a></li>
-          <li class="cardList02__item"><a class="cardList02__link" href="#">
-              <figure class="cardList02__thumb"><img class="cardList01__img" src="https://placehold.jp/300x300.png" alt="#">
-                <figcaption class="cardList02__caption">Name</figcaption>
-              </figure></a></li>
-          <li class="cardList02__item"><a class="cardList02__link" href="#">
-              <figure class="cardList02__thumb"><img class="cardList01__img" src="https://placehold.jp/300x300.png" alt="#">
-                <figcaption class="cardList02__caption">Name</figcaption>
-              </figure></a></li>
-          <li class="cardList02__item"><a class="cardList02__link" href="#">
-              <figure class="cardList02__thumb"><img class="cardList01__img" src="https://placehold.jp/300x300.png" alt="#">
-                <figcaption class="cardList02__caption">Name</figcaption>
-              </figure></a></li>
-        </ul>
-      </section>
+
+        //cssの当て方
+        <p>Hello <span class="bg-gray text-blue" v-bind:class="{ large: isLarge, 'text-danger': hasError }">Vue.js!</span></p>
+        <p>Hello <span v-bind:class="largeClass">Vue.js</span></p>
+        <p>Hello <span v-bind:class="[largeClass, dangerClass]">Vue.js</span></p>
+        <p>Hello <span v-bind:class="classObject">Vue.js!</span></p>
+        <p>Hello <span v-bind:class="isLarge ? largeClass2 : ''">Vue.js</span></p>
+        <p>Hello <span v-bind:class="[isLarge ? largeClass2 : '', dangerClass]">Vue.js</span></p>
+
+      </div>
     </main>
     <footer class="siteFooter">
-      <div class="inner__cont">
-        <div class="toTop js-toTop"></div>
-        <p class="copyrights">&copy; website.com | 2020</p>
-      </div>
     </footer>
-    
+
     <!-- Scripts-->
     <script src="./_assets/lib/polyfill/smoothscroll.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="https://unpkg.com/axios@0.21.1/dist/axios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.js"></script>
     <script src="./_assets/js/bundle.js"></script>
   </body>
 </html>

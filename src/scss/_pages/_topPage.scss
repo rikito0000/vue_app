@@ -1,3 +1,26 @@
 /*====================================================================
 topPageFvSec
 ====================================================================*/
+#app {
+  color: black;
+  font-size: 1.2rem;
+}
+
+//ちらつきがなくなるためにcssで調整v-cloak
+[v-cloak] {
+  display: none;
+}
+.large {
+  font-size: 36px;
+}
+.text-danger {
+  color: red;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.text-blue {
+  color: blue;
+}
